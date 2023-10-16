@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "First experiment";
+}
+
+<form method="post">
+    @if (ViewBag.Value == "null")
+    {
+        <button value="FF0000" name="button_color" style="color:red">Buy</button>
+        <button value="00FF00" name="button_color" style="color:green">Buy</button>
+        <button value="0000FF" name="button_color" style="color:blue">Buy</button>
+    } 
+    else
+    {
+        <button value="@ViewBag.Value" name="button_color" style="color:#@ViewBag.Value">Buy</button>
+    }
+</form>
+
+<a class="btn flex-column-reverse" type="submit" href="/home/MainMenu">Main</a>

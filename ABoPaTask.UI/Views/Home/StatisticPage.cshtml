@@ -1,0 +1,58 @@
+﻿@using ABoPaTask.API.Classes
+@model IEnumerable<Result>
+
+@{
+    ViewData["Title"] = "Statistic";
+}
+
+<form method="post">
+    <input type="hidden" name="key" value="button_color" />
+    <button type="submit">Button_color</button>
+</form>
+
+<form method="post">
+    <input type="hidden" name="key" value="price" />
+    <button type="submit">Price</button>
+</form>
+
+<a class="btn flex-column-reverse" type="submit" href="/home/MainMenu">Main</a>
+
+<div>
+    <table>
+        <thead>
+            <tr>
+                <th>
+                    Hash
+                </th>
+                <th>
+                    Key
+                </th>
+                <th>
+                    Value
+                </th>
+                <th>
+                    Count devices: @ViewBag.Count
+                </th>
+            </tr>
+            </thead>
+            <tbody >
+                @if (Model != null)
+                {
+                    foreach (var experiment in Model)
+                    {
+                        <tr>
+                            <td>
+                                @experiment.deviceToken
+                             </td>
+                            <td>
+                                @experiment.X_Name
+                            </td>
+                            <td>
+                                @experiment.value
+                            </td>
+                        </tr>
+                        }
+                    }
+        </tbody>
+    </table>     
+</div>
